@@ -36,7 +36,7 @@ white=(255,255,255)
 
 clock=pygame.time.Clock()
 crashed=False
-carImg=pygame.image.load('racecar.jpg')
+carImg=pygame.image.load('pic/racecar.jpg')
 
 def car(x,y):
     gameDisplay.blit(carImg, (x,y))
