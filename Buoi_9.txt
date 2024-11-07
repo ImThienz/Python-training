@@ -1,0 +1,45 @@
+pip i Django
+Django-admin startproject Buoi_9
+cd Buoi_9
+python manage.py runserver
+
+python manage.py startapp members
+
+------path Buoi_9/urls.py:------
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('members/', include('members.urls')),  # Kết nối ứng dụng members
+]
+
+------path members/urls.py: (chưa có thì tạo urls.py)------
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),  # Đường dẫn mặc định cho ứng dụng members
+    path('', views.members, name='members'),
+]
+
+------path Buoi_9/views.py:------
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+def home(request):
+    return HttpResponse("Hello, this is the home page of members!")
+
+def members(request):
+    return HttpResponse("Hello world!")
+
+------------------------------
+python manage.py runserver
+
+
+
+
